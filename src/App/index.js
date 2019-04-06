@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import Round from '../Rounds';
 import Score from '../Score';
-import { Results } from '../Results';
+import Results from '../Results';
 import Players from '../Players';
 
 const Layout = ({ level }) => {

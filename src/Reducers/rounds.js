@@ -1,4 +1,4 @@
-import { SET_ROUND_MOVE, SET_CURRENT_ROUND } from '../Actions/rounds.js';
+import { SET_ROUND_MOVE, SET_CURRENT_ROUND, SET_WINNER } from '../Actions/rounds.js';
 
 const getRoundWinner = ({ player1, player2 }) => {
   if (player1 === player2) return 'draw';
@@ -27,6 +27,15 @@ export const rounds = (state = {}, action) => {
       return setRoundMove(state, action.roundNumber, action.moves);
     case SET_CURRENT_ROUND:
       return { ...state, currentRound: action.currentRound };
+    default:
+      return state;
+  }
+};
+
+export const winner = (state = '', action) => {
+  switch (action.type) {
+    case SET_WINNER:
+      return action.winner;
     default:
       return state;
   }

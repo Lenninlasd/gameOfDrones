@@ -1,6 +1,6 @@
 export const SET_STATUS = 'SET_STATUS';
 
-export const setStatus = level => ({
+export const setLevel = level => ({
   type: SET_STATUS,
   level
 });

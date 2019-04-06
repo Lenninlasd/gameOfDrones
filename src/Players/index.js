@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { addPlayers } from '../Actions/players.js';
-import { setStatus } from '../Actions/config.js';
+import { setLevel } from '../Actions/config.js';
 
 class Players extends Component {
   constructor(props) {
@@ -59,7 +59,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   submit: players => {
     dispatch(addPlayers(players));
-    dispatch(setStatus(2));
+    dispatch(setLevel(2));
   }
 });
 
