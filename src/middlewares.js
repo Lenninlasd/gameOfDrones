@@ -1,6 +1,7 @@
 import { SET_ROUND_MOVE, setWinnerAndRusults } from './Actions/rounds.js';
 
 export const logger = store => next => action => {
+  /*eslint no-console: ["error", { allow: ["group", "log", "info", groupEnd] }] */
   console.group(action.type);
   console.info('dispatching', action);
   let result = next(action);

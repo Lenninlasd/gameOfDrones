@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const ScoreRound = ({ roundNumber, winner }) => (
   <>
@@ -29,6 +30,19 @@ const Score = ({ players, rounds }) => {
     </div>
   );
 };
+
+Score.propTypes = {
+  players: PropTypes.shape({
+    player1: PropTypes.string.isRequired,
+    player2: PropTypes.string.isRequired
+  }),
+  rounds: PropTypes.shape({}).isRequired
+};
+ScoreRound.propTypes = {
+  roundNumber: PropTypes.number.isRequired,
+  winner: PropTypes.string.isRequired
+};
+
 const mapStateToProps = state => ({
   players: state.players,
   rounds: state.rounds

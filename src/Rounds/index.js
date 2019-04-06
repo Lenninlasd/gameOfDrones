@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setRoundMove } from '../Actions/rounds.js';
+import PropTypes from 'prop-types';
 
 class Round extends Component {
   constructor(props) {
@@ -88,6 +89,14 @@ class Round extends Component {
     );
   }
 }
+
+Round.propTypes = {
+  players: PropTypes.shape({
+    player1: PropTypes.string.isRequired,
+    player2: PropTypes.string.isRequired
+  }),
+  finishRound: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => ({
   players: state.players

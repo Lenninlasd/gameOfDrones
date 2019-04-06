@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Round from '../Rounds';
 import Score from '../Score';
@@ -27,6 +28,12 @@ const App = ({ level }) => (
     <Layout level={level} />
   </div>
 );
+
+const levelProp = {
+  level: PropTypes.number.isRequired
+};
+Layout.propTypes = levelProp;
+App.propTypes = levelProp;
 
 const mapStateToProps = state => ({
   level: state.level

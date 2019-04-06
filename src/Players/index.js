@@ -35,7 +35,7 @@ class Players extends Component {
   render() {
     return (
       <div>
-        <h1>Enter Player's Names</h1>
+        <h1>Enter Player&apos;s Names</h1>
         <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="player1">Player 1</label>
@@ -51,6 +51,13 @@ class Players extends Component {
     );
   }
 }
+Players.propTypes = {
+  players: PropTypes.shape({
+    player1: PropTypes.string.isRequired,
+    player2: PropTypes.string.isRequired
+  }),
+  submit: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => ({
   players: state.players
