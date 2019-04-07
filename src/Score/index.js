@@ -18,7 +18,7 @@ const Score = ({ players, rounds }) => {
   const roundList = Object.keys(rounds);
 
   const scoreList = roundList.map(round => {
-    const roundNumber = round[round.length - 1];
+    const roundNumber = Number(round[round.length - 1]);
     const winner = rounds[round].winner;
     return <ScoreRound key={round} roundNumber={roundNumber} winner={players[winner] || winner} />;
   });
