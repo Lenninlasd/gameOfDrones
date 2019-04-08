@@ -5,8 +5,8 @@ const Schema = mongoose.Schema;
 const gameModel = new Schema({
   level: Number,
   players: {
-    player1: String,
-    player2: String
+    player1: { type: String, required: true },
+    player2: { type: String, required: true }
   },
   rounds: [
     {

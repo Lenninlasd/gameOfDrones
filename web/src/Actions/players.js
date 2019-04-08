@@ -20,6 +20,8 @@ export const submitPlayers = players => dispatch => {
     })
     .catch(err => {
       console.log(err, err.response);
-      alert(err.response.data);
+      if (err.response.status === 400) {
+        alert(err.response.data);
+      }
     });
 };

@@ -12,11 +12,17 @@ const httpsSts = {
 const validForm = game => {
   if (game.players.player1 === game.players.player2) {
     return {
-      status: httpsSts.error,
+      statusToSend: httpsSts.error,
       msg: `The player's names must be different`
     };
   }
-  return { status: httpsSts.created };
+  if (!game.players.player1 || !game.players.player2) {
+    return {
+      statusToSend: httpsSts.error,
+      msg: `The fields can not be empty`
+    };
+  }
+  return { statusToSend: httpsSts.created };
 };
 
 gameRouter
@@ -28,9 +34,12 @@ gameRouter
   })
   .post((req, res) => {
     const game = new Game(req.body);
-    const { status, msg } = validForm(game);
-    if (status === httpsSts.created) game.save();
-    res.status(status).json(msg || game);
+    const { statusToSend, msg } = validForm(game);
+
+    if (statusToSend === httpsSts.created) {
+      game.save();
+    }
+    res.status(statusToSend).json(msg || game);
   });
 
 gameRouter.route('/results').get((req, res) => {
