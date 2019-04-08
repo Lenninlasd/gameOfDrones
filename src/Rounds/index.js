@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setRoundMove } from '../Actions/rounds.js';
+import { finishRound } from '../Actions/rounds.js';
 import PropTypes from 'prop-types';
 
 class Round extends Component {
@@ -35,7 +35,7 @@ class Round extends Component {
       this.setState({ currentPlayer: 'player2' });
       return;
     }
-    this.props.finishRound(this.state.currentRound, this.state.moves);
+    this.props.finishRound(this.props.id, this.state.currentRound, this.state.moves);
     this.clearRound();
   }
 
@@ -91,6 +91,7 @@ class Round extends Component {
 }
 
 Round.propTypes = {
+  id: PropTypes.string.isRequired,
   players: PropTypes.shape({
     player1: PropTypes.string.isRequired,
     player2: PropTypes.string.isRequired
@@ -99,14 +100,11 @@ Round.propTypes = {
 };
 
 const mapStateToProps = state => ({
+  id: state.id,
   players: state.players
-});
-
-const mapDispatchToProps = dispatch => ({
-  finishRound: (roundNumber, moves) => dispatch(setRoundMove(roundNumber, moves))
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  { finishRound }
 )(Round);

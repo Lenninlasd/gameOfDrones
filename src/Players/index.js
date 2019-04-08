@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { addPlayers } from '../Actions/players.js';
-import { setLevel } from '../Actions/config.js';
-
+import { submitPlayers } from '../Actions/players.js';
 import styles from '../Styles/players.css';
 
 class Players extends Component {
@@ -31,7 +29,7 @@ class Players extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.submit(this.state);
+    this.props.submitPlayers(this.state);
   }
 
   render() {
@@ -82,21 +80,14 @@ Players.propTypes = {
     player1: PropTypes.string.isRequired,
     player2: PropTypes.string.isRequired
   }),
-  submit: PropTypes.func.isRequired
+  submitPlayers: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   players: state.players
 });
 
-const mapDispatchToProps = dispatch => ({
-  submit: players => {
-    dispatch(addPlayers(players));
-    dispatch(setLevel(2));
-  }
-});
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  { submitPlayers }
 )(Players);

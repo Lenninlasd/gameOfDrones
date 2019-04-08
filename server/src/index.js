@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const config = require('../config');
 const bodyParser = require('body-parser');
 const gameRouter = require('./Routes/gameRouter');
+const cors = require('cors');
+app.use(cors());
 
 const port = 3000;
 const environment = config.NODE_ENV ? 'mongo' : 'localhost';
