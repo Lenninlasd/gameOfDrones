@@ -1,19 +1,19 @@
-.playersContainer {
+.container {
   width: 100%;
-  padding: 24px;
+  padding: 24px 0;
   margin-right: auto;
   margin-left: auto;
-
   display: flex;
   justify-content: center;
 }
 
-.playersCard {
+.card {
   background: white;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
     0px 2px 1px -1px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   padding: 16px;
+  min-width: 300px;
 }
 
 .btn {
@@ -69,4 +69,57 @@
   margin-bottom: 0;
   font-size: inherit;
   line-height: 1.5;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.moves-buttons {
+  padding-bottom: 18px;
+}
+
+.scores-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+/**********/
+
+.cc-selector-2 input {
+  position: absolute;
+  z-index: 999;
+}
+
+.paper {
+  background-image: url(https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/33/raised-hand-with-fingers-splayed_emoji-modifier-fitzpatrick-type-1-2_1f590_1f3fb.png);
+}
+.rock {
+  background-image: url(https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/emojidex/112/fisted-hand-sign_1f44a.png);
+}
+.scissors {
+  background-image: url(https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/198/victory-hand_270c.png);
+}
+
+.cc-selector-2 input:active + .movement,
+.cc-selector input:active + .movement {
+  opacity: 0.9;
+}
+.cc-selector-2 input:checked + .movement,
+.cc-selector input:checked + .movement {
+  filter: none;
+}
+.movement {
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 100px;
+  height: 70px;
+  transition: all 100ms ease-in;
+  filter: grayscale(1) opacity(0.7);
+}
+.movement:hover {
+  filter: grayscale(0.5) opacity(1);
 }

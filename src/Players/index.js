@@ -34,8 +34,8 @@ class Players extends Component {
 
   render() {
     return (
-      <div className={styles.playersContainer}>
-        <div className={styles.playersCard}>
+      <div className={styles.container}>
+        <div className={styles.card}>
           <h1>Enter Player&apos;s Names</h1>
           <form onSubmit={this.handleSubmit}>
             <div className={styles.row}>

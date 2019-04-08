@@ -2,16 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import styles from '../Styles/players.css';
+
 const ScoreRound = ({ roundNumber, winner }) => (
-  <>
+  <div className={styles.scoresWrapper}>
     <div>
-      <h3>Round {roundNumber}</h3>
+      <div>{roundNumber}</div>
     </div>
     <div>
-      <h3>Winner</h3>
       <div>{winner}</div>
     </div>
-  </>
+  </div>
 );
 
 const Score = ({ players, rounds }) => {
@@ -24,9 +25,19 @@ const Score = ({ players, rounds }) => {
   });
 
   return (
-    <div>
-      <h1>Score</h1>
-      {scoreList}
+    <div className={styles.container}>
+      <div className={styles.card}>
+        <h1>Score</h1>
+        <div className={styles.scoresWrapper}>
+          <div>
+            <h3>Round</h3>
+          </div>
+          <div>
+            <h3>Winner</h3>
+          </div>
+        </div>
+        {scoreList}
+      </div>
     </div>
   );
 };

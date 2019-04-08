@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { finishRound } from '../Actions/rounds.js';
 import PropTypes from 'prop-types';
 
+import styles from '../Styles/players.css';
+
 class Round extends Component {
   constructor(props) {
     super(props);
@@ -50,41 +52,49 @@ class Round extends Component {
     const { players } = this.props;
     const { moves, currentRound, currentPlayer } = this.state;
     return (
-      <div>
-        <h1>Round {currentRound}</h1>
-        <h2>{players[currentPlayer]}</h2>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <h3>Choose your move</h3>
-            <input
-              checked={moves[currentPlayer] === 'paper'}
-              type="radio"
-              name="move"
-              value="paper"
-              required
-              onChange={this.handleChange}
-            />
-            Paper
-            <br />
-            <input
-              checked={moves[currentPlayer] === 'rock'}
-              type="radio"
-              name="move"
-              value="rock"
-              onChange={this.handleChange}
-            />
-            Rock <br />
-            <input
-              checked={moves[currentPlayer] === 'scissors'}
-              type="radio"
-              name="move"
-              value="scissors"
-              onChange={this.handleChange}
-            />
-            Scissors
-          </div>
-          <button type="submit">Ok</button>
-        </form>
+      <div className={styles.container}>
+        <div className={styles.card}>
+          <h1>Round {currentRound}</h1>
+          <h2>{players[currentPlayer]}</h2>
+          <form onSubmit={this.handleSubmit}>
+            <div className={styles.movesButtons}>
+              <h3>Choose your move</h3>
+              <div className={styles.ccSelector2}>
+                <input
+                  id="paper"
+                  checked={moves[currentPlayer] === 'paper'}
+                  type="radio"
+                  name="move"
+                  value="paper"
+                  required
+                  onChange={this.handleChange}
+                />
+                <label className={`${styles.movement} ${styles.paper}`} htmlFor="paper" />
+                <input
+                  id="rock"
+                  checked={moves[currentPlayer] === 'rock'}
+                  type="radio"
+                  name="move"
+                  value="rock"
+                  onChange={this.handleChange}
+                />
+                <label className={`${styles.movement} ${styles.rock}`} htmlFor="rock" />
+                <input
+                  id="scissors"
+                  checked={moves[currentPlayer] === 'scissors'}
+                  type="radio"
+                  name="move"
+                  value="scissors"
+                  onChange={this.handleChange}
+                />
+                <label className={`${styles.movement} ${styles.scissors}`} htmlFor="scissors" />
+              </div>
+            </div>
+            <button className={`${styles.btn} ${styles.btnBlock}`} type="submit">
+              Ok
+            </button>
+          </form>
+        </div>
       </div>
     );
   }
