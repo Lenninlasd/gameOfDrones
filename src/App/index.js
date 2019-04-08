@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Round from '../Rounds';
 import Score from '../Score';
 import Results from '../Results';
 import Players from '../Players';
+import Stats from '../Stats';
 
 const Layout = ({ level }) => {
   switch (level) {
@@ -23,20 +25,21 @@ const Layout = ({ level }) => {
   }
 };
 
-const App = ({ level }) => (
-  <div>
-    <Layout level={level} />
-  </div>
-);
-
-const levelProp = {
+Layout.propTypes = {
   level: PropTypes.number.isRequired
 };
-Layout.propTypes = levelProp;
-App.propTypes = levelProp;
 
 const mapStateToProps = state => ({
   level: state.level
 });
 
-export default connect(mapStateToProps)(App);
+const LayoutConnected = connect(mapStateToProps)(Layout);
+
+export const App = () => (
+  <Router>
+    <div>
+      <Route exact path="/" component={LayoutConnected} />
+      <Route path="/stats" component={Stats} />
+    </div>
+  </Router>
+);

@@ -16,7 +16,8 @@ const gameModel = new Schema({
       winner: String
     }
   ],
-  winner: String
+  winner: String,
+  winnerName: String
 });
 
 module.exports = mongoose.model('game', gameModel);
