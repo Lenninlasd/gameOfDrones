@@ -26,6 +26,9 @@ module.exports = {
       }
     ]
   },
+  devServer: {
+    historyApiFallback: true
+  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env.BASE_HOST': JSON.stringify(process.env.BASE_HOST),

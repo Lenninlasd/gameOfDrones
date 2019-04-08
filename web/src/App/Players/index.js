@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { submitPlayers } from '../Actions/players.js';
+import { submitPlayers } from '../../Actions/players.js';
 import styles from '../Styles/players.css';
 
 class Players extends Component {
@@ -36,7 +36,7 @@ class Players extends Component {
   render() {
     return (
       <>
-        <Link to="/stats/">Stats</Link>
+        <Link to="/stats">Stats</Link>
         <div className={styles.container}>
           <div className={styles.card}>
             <h1>Enter Player&apos;s Names</h1>

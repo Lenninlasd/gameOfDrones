@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Round from '../Rounds';
-import Score from '../Score';
-import Results from '../Results';
-import Players from '../Players';
-import Stats from '../Stats';
+import Round from './Rounds';
+import Score from './Score';
+import Results from './Results';
+import Players from './Players';
+import Stats from './Stats';
 
 const Layout = ({ level }) => {
   switch (level) {

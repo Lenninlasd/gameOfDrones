@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { finishRound } from '../Actions/rounds.js';
+import { finishRound } from '../../Actions/rounds.js';
 import PropTypes from 'prop-types';
 
 import styles from '../Styles/players.css';

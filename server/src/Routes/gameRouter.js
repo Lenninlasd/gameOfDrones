@@ -42,7 +42,7 @@ gameRouter.route('/results').get((req, res) => {
           count: { $sum: 1 }
         }
       },
-      { $sort: { _id: 1 } }
+      { $sort: { count: -1 } }
     ],
     (err, result) => {
       res.json(result);
